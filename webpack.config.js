@@ -2,9 +2,9 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const childProcess = require("child_process")
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env = {}) => {
     const prod = env.mode === "production";
@@ -37,29 +37,6 @@ module.exports = (env = {}) => {
                     test: /\.(ts|tsx)$/,
                     use: ["babel-loader", "ts-loader"],
                     exclude: /node_modules/,
-                },
-                // {
-                //     test: /\.less$/,
-                //     use: [
-                //       prod ? MiniCssExtractPlugin.loader : "style-loader",
-                //         'css-loader',
-                //         "less-loader",
-                //     ],
-                // },
-                {
-                    test: /\.(css)$/,
-                    use: [
-                        {loader: prod ? MiniCssExtractPlugin.loader : 'style-loader'},
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true,
-                                modules: {
-                                    localIdentName: '[name]__[local]--[hash:base64:5]'
-                                }
-                            }
-                        }
-                    ]
                 },
                 {
                     test: /\.(less)$/,
