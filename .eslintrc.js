@@ -1,6 +1,6 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'prettier'],
+    plugins: ['@typescript-eslint', 'prettier', 'import'],
     extends: [
         'airbnb',
         'plugin:import/errors',
@@ -9,6 +9,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
     ],
     rules: {
+        '@typescript-eslint/no-var-requires': 0,
         'linebreak-style': 0,
         'import/prefer-default-export': 0,
         'prettier/prettier': 0,
@@ -29,5 +30,6 @@ module.exports = {
                 unnamedComponents: "arrow-function",
             },
         ],
+
     },
 };

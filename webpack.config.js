@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const childProcess = require("child_process")
 
 module.exports = (env = {}) => {
     const prod = env.mode === "production";
@@ -33,15 +34,58 @@ module.exports = (env = {}) => {
                     }
                 },
                 {
-                    test: /\.tsx?$/,
+                    test: /\.(ts|tsx)$/,
                     use: ["babel-loader", "ts-loader"],
+                    exclude: /node_modules/,
                 },
-
+                // {
+                //     test: /\.less$/,
+                //     use: [
+                //       prod ? MiniCssExtractPlugin.loader : "style-loader",
+                //         'css-loader',
+                //         "less-loader",
+                //     ],
+                // },
+                {
+                    test: /\.(css)$/,
+                    use: [
+                        {loader: prod ? MiniCssExtractPlugin.loader : 'style-loader'},
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                                modules: {
+                                    localIdentName: '[name]__[local]--[hash:base64:5]'
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(less)$/,
+                    use: [
+                        {loader: prod ? MiniCssExtractPlugin.loader : 'style-loader'},
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                                modules: {
+                                    localIdentName: '[name]__[local]--[hash:base64:5]'
+                                }
+                            }
+                        },
+                        {loader: 'less-loader'}
+                    ]
+                }
             ]
         },
         plugins: [
             new webpack.BannerPlugin({
-                banner: "This is banner"
+                banner: `
+                      Build Date: ${new Date().toLocaleString()}
+                      Commit Version: ${childProcess.execSync('git rev-parse --short HEAD')}
+                      Author: ${childProcess.execSync('git config user.name')}
+                  `
             }),
             new webpack.DefinePlugin({
             }),
@@ -63,10 +107,12 @@ module.exports = (env = {}) => {
             // }),
         ],
         devServer: {
-            port: 3000,
-            overlay: true,
-            stats: "errors-only",
-            hot: true
+            host: 'localhost', // host 설정
+            port: 3000,// port 설정
+            open: true, // 서버를 실행했을 때, 브라우저를 열어주는 여부
+            compress: true,
+            hot: true,
+            historyApiFallback: true,
         },
     }
 
