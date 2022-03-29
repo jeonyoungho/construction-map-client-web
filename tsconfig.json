@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "ES2017", // 사용할 특정 ECMAScript 버전 설정 ex> es5, es6,
+    "target": "ES2015", // 사용할 특정 ECMAScript 버전 설정 ex> es5, es6,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
