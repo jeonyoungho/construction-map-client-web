@@ -8,8 +8,6 @@ interface Props {
 }
 
 const App: React.FC<Props> = (props) => {
-    console.log("render!", s);
-
     const person = new Person("jeon young ho");
 
     return (
