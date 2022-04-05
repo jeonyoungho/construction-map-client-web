@@ -11,7 +11,7 @@ module.exports = (env = {}) => {
 
     return {
         mode: prod ? "production" : "development",
-        devtool: prod ? "hidden-source-map" : "eval", // 모드에 따라 SourceMap 확인 여부
+        devtool: prod ? "hidden-source-map" : "inline-source-map", // 모드에 따라 SourceMap 확인 여부
         entry: {
             main: "./src/index.tsx"
         },
