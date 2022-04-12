@@ -23,12 +23,13 @@ module.exports = {
         'no-use-before-define': "off",
         "@typescript-eslint/no-use-before-define": ["warn"],
         'import/no-unresolved': "off",
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}], // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용
+        // "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}], // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용
         'no-shadow': "off",
         'react/prop-types': "off",
         'react/jsx-filename-extension': ["warn", { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'jsx-a11y/no-noninteractive-element-interactions': "warn",
         "@typescript-eslint/no-empty-interface": "warn",
         "@typescript-eslint/no-empty-function": "warn",
+        'import/order': "off",
     },
 };
