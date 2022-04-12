@@ -10,7 +10,11 @@
     "strict": true /* 모든 엄격한 타입-체킹 옵션 활성화 여부 */,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "Util/*": ["src/util/*"]
+    }
   },
   "include": [
     "./src"

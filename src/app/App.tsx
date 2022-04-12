@@ -1,9 +1,14 @@
 // Created by jyh on 2022-03-28
-import * as React from "react";
+import React from "react";
 import { Person } from './sampleVM';
 import { observer } from 'mobx-react'
 import store from "./store/index"
 import { autorun } from "mobx";
+import s from "./app.less";
+import child from './store/child';
+import actionTest from './store/actionTest';
+import parentOverrideTest from './store/overrideTest';
+import util from "Util/util"
 
 interface Props {
 
@@ -23,11 +28,12 @@ const App: React.FC<Props> = observer((props) => {
         doubleClassAuto.value = 0
       }
     })
-    // console.log("render!");
+    console.log("render! " + s.text);
 
     return (
         <div style={{padding: '50px'}}>
-            <div>person name: {person.name}</div>
+            <div className={s.text}>person name: {person.name}</div>
+            <div>util value is {util.value}</div>
             <div style={{ marginBottom: '50px'}}>
                 <h1>Count(Class)</h1>
                 <div>number: {countClass.number}</div>
@@ -46,6 +52,35 @@ const App: React.FC<Props> = observer((props) => {
               <div>double number: {doubleClassAuto.value}</div>
               <button onClick={() => doubleClassAuto.increment()}>
                 double increment
+              </button>
+            </div>
+
+            <div>
+              <h1>Child</h1>
+              <div>observable2: {child.observable1}</div>
+              <button onClick={() => child.action1()}>
+                action2
+              </button>
+            </div>
+
+            <div>
+              <h1>Action Test</h1>
+              <div>value: {actionTest.value}</div>
+              <button onClick={() => actionTest.actionTest()}>
+                doubleValue
+              </button>
+            </div>
+
+            <div>
+              <h1>Override Test</h1>
+              <div>value: {parentOverrideTest.value}</div>
+              {/*<div>value2: {parentOverrideTest.value2}</div>*/}
+              <button onClick={() => parentOverrideTest.increase()}>
+                increase value
+              </button>
+
+              <button onClick={() => parentOverrideTest.clearData()}>
+                clearData
               </button>
             </div>
         </div>

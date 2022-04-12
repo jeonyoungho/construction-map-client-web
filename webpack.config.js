@@ -20,6 +20,9 @@ module.exports = (env = {}) => {
             filename: "[name].js"
         },
         resolve: {
+            alias: {
+                Util: path.resolve(__dirname, 'src/util'),
+            },
             extensions: [".js", ".jsx", ".ts", ".tsx"], // 배열안 확장자에 따라서 처리
         },
         module: {
