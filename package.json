@@ -5,11 +5,15 @@
   "repository": "https://github.com/jeonyoungho/construction-map-client-web.git",
   "author": "jeonyoungho <yhjun1000@gmail.com>",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "webpack --progress --env mode=production",
     "start": "webpack serve --progress",
-    "eslint": "eslint src",
-    "eslint-fix": "eslint src --fix"
+    "eslint": "eslint packages/construction-map-client-web/src",
+    "eslint-fix": "eslint packages/construction-map-client-web/src --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

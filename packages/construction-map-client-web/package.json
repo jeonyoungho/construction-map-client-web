@@ -1,0 +1,8 @@
+{
+  "name": "construction-map-client-web",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "widget": "^1.0.0"
+  }
+}

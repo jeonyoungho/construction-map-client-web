@@ -2,13 +2,13 @@
 import React from "react";
 import { Person } from './sampleVM';
 import { observer } from 'mobx-react'
-import store from "./store/index"
+import store from "./store"
 import { autorun } from "mobx";
 import s from "./app.less";
 import child from './store/child';
 import actionTest from './store/actionTest';
 import parentOverrideTest from './store/overrideTest';
-import util from "Util/util"
+import util from "../util/util"
 
 interface Props {
 

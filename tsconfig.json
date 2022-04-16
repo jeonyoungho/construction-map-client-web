@@ -17,6 +17,6 @@
     }
   },
   "include": [
-    "./src"
+    "./packages/construction-map-client-web/src"
   ]
 }
