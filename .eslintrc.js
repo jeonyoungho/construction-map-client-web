@@ -4,7 +4,7 @@ module.exports = {
         "node": true,
         es2022: true,
     },
-    ignorePatterns: ["node_modules/"],
+    ignorePatterns: ["node_modules/", "dist"],
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint', 'prettier', 'import'],
     extends: [
@@ -21,9 +21,10 @@ module.exports = {
         'prettier/prettier': "off",
         'import/extensions': "off",
         'no-use-before-define': "off",
+        'prefer-template': "off",
         "@typescript-eslint/no-use-before-define": ["warn"],
         'import/no-unresolved': "off",
-        // "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}], // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용
+        "import/no-extraneous-dependencies": "off",
         'no-shadow': "off",
         'react/prop-types': "off",
         'react/jsx-filename-extension': ["warn", { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
@@ -31,5 +32,7 @@ module.exports = {
         "@typescript-eslint/no-empty-interface": "warn",
         "@typescript-eslint/no-empty-function": "warn",
         'import/order': "off",
+        "react/button-has-type": "off",
+        "react/function-component-definition": "off",
     },
 };

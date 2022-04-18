@@ -1,15 +1,15 @@
 {
-  "name": "construction-map-client-web",
+  "name": "construction-map-widget",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "lib/main.js",
+  "typings": "lib/main.d.ts",
   "scripts": {
     "build": "webpack --progress --env mode=production",
     "start": "webpack serve --progress",
     "eslint": "eslint src",
     "eslint-fix": "eslint src --fix"
   },
-  "dependencies": {
-    "construction-map-widget": "^1.0.0",
-    "html-webpack-plugin": "^5.5.0"
+  "devDependencies": {
   }
 }

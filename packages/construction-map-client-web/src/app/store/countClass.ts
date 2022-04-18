@@ -2,7 +2,7 @@
 import { action, makeAutoObservable, makeObservable, observable } from 'mobx';
 
 class CountClass {
-  number:number = 0;
+  number = 0;
 
   constructor() {
     makeObservable(this, {
@@ -23,7 +23,7 @@ class CountClass {
   }
 
   print() {
-    console.log("number: " + this.number);
+    console.log(`number: ${  this.number}`);
   }
 }
 

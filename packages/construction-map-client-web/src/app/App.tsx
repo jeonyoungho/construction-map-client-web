@@ -1,5 +1,5 @@
 // Created by jyh on 2022-03-28
-import React from "react";
+import React, { useCallback, useState } from 'react';
 import { Person } from './sampleVM';
 import { observer } from 'mobx-react'
 import store from "./store"
@@ -8,7 +8,8 @@ import s from "./app.less";
 import child from './store/child';
 import actionTest from './store/actionTest';
 import parentOverrideTest from './store/overrideTest';
-import util from "../util/util"
+import util from "../util/util";
+import {TextInput} from 'construction-map-widget'
 
 interface Props {
 
@@ -17,18 +18,24 @@ interface Props {
 const App: React.FC<Props> = observer((props) => {
     const person = new Person("jeon young ho");
 
+    const [text, setText] = useState('');
+
+    const handleTextChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+      setText(e.target.value);
+    }, [setText]);
+
     const { countClass, countObject, doubleClassAuto } = store;
 
     autorun(() => {
       if (doubleClassAuto.double) {
-        console.log('Double' + doubleClassAuto.double)
+        console.log(`Double${  doubleClassAuto.double}`)
       }
       if (doubleClassAuto.double === 8) {
         console.log('만약 value가 8이라면 0으로 초기화')
         doubleClassAuto.value = 0
       }
     })
-    console.log("render! " + s.text);
+    console.log(`render! ${  s.text}`);
 
     return (
         <div style={{padding: '50px'}}>
@@ -74,7 +81,7 @@ const App: React.FC<Props> = observer((props) => {
             <div>
               <h1>Override Test</h1>
               <div>value: {parentOverrideTest.value}</div>
-              {/*<div>value2: {parentOverrideTest.value2}</div>*/}
+              {/* <div>value2: {parentOverrideTest.value2}</div> */}
               <button onClick={() => parentOverrideTest.increase()}>
                 increase value
               </button>
@@ -83,6 +90,8 @@ const App: React.FC<Props> = observer((props) => {
                 clearData
               </button>
             </div>
+
+            <TextInput value={text} onChange={handleTextChange}/>
         </div>
     );
 });

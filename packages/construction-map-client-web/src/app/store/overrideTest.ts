@@ -3,7 +3,7 @@ import { action, makeObservable, observable, override } from 'mobx';
 
 class OverrideTest {
 
-  value: number = 1;
+  value = 1;
 
   constructor() {
     makeObservable(this, {
@@ -30,7 +30,7 @@ class OverrideTest {
 
 class ParentOverrideTest extends OverrideTest {
 
-  value2: number = 1;
+  value2 = 1;
 
   constructor() {
     super();

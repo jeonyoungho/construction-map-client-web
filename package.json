@@ -1,8 +1,7 @@
 {
-  "name": "construction-map-client-web",
+  "name": "construction-map-frontend",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/jeonyoungho/construction-map-client-web.git",
+  "repository": "https://github.com/jeonyoungho/construction-map-frontend.git",
   "author": "jeonyoungho <yhjun1000@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -10,10 +9,12 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "webpack --progress --env mode=production",
-    "start": "webpack serve --progress",
-    "eslint": "eslint packages/construction-map-client-web/src",
-    "eslint-fix": "eslint packages/construction-map-client-web/src --fix"
+    "client-web-build": "yarn workspace construction-map-client-web build",
+    "client-web-start": "yarn workspace construction-map-client-web start",
+    "widget-build": "yarn workspace construction-map-widget build",
+    "widget-start": "yarn workspace construction-map-widget start",
+    "eslint": "eslint packages/*",
+    "eslint-fix": "eslint packages/* --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -38,7 +39,6 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "mini-css-extract-plugin": "^2.6.0",

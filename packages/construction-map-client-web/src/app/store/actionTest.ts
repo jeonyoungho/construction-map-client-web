@@ -2,13 +2,13 @@
 import { action, makeObservable, observable } from 'mobx';
 
 function doubleValue(value: number) {
-  value = value * 2;
-  console.log("[doubleValue]: " + value);
+  value *= 2;
+  console.log(`[doubleValue]: ${  value}`);
 }
 
 class ActionTest {
 
-  value: number = 1;
+  value = 1;
 
   constructor() {
     makeObservable(this, {
@@ -28,14 +28,14 @@ class ActionTest {
   }
 
   actionTest = () => {
-    console.log("before this.value: " + this.value);
+    console.log(`before this.value: ${  this.value}`);
     this.double();
-    console.log("after this.value: " + this.value);
+    console.log(`after this.value: ${  this.value}`);
   }
 
   double = () => {
-    this.value = this.value * 2;
-    console.log("[double]: " + this.value);
+    this.value *= 2;
+    console.log(`[double]: ${  this.value}`);
   }
 }
 

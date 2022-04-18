@@ -2,7 +2,7 @@
 import { makeAutoObservable, makeObservable, observable, action, computed } from 'mobx'
 
 class Doubler {
-  value: number = 0;
+  value = 0;
 
   constructor(value: number) {
     // makeAutoObservable이 다른 action, computed를 자동으로 선언

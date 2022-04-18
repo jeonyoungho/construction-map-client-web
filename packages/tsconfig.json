@@ -2,6 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "target": "ES2015", // 사용할 특정 ECMAScript 버전 설정 ex> es5, es6,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
@@ -9,14 +10,14 @@
     "jsx": "react", // JSX 코드 생성 설정: 'preserve', 'react-native', 혹은 'react'.,
     "strict": true /* 모든 엄격한 타입-체킹 옵션 활성화 여부 */,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "Util/*": ["src/util/*"]
-    }
+      "*": [
+        "packages/*"
+      ]
+    },
   },
-  "include": [
-    "./packages/construction-map-client-web/src"
-  ]
+  "include": [],
+  "exclude": ["../node_modules"]
 }
