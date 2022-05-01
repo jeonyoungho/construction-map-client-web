@@ -8,7 +8,9 @@
     "build": "webpack --progress --env mode=production",
     "start": "webpack serve --progress",
     "eslint": "eslint src",
-    "eslint-fix": "eslint src --fix"
+    "eslint-fix": "eslint src --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
   }
